@@ -48,6 +48,10 @@ async function searchMovies() {
   );
 
   try {
+    
+    const messageElement = document.getElementById("searchResult");
+    messageElement.innerHTML = "";
+   
     const response = await fetch(searchUrl);
     const data = await response.json();
     const movieListContainer = document.getElementById("movieList");
