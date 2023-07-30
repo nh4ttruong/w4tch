@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Lukiluki Openzika</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="utf-8" />
+  <meta property="twitter:card" content="summary_large_image" />
+
+  <style data-tag="default-style-sheet">
+  </style>
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&amp;display=swap"
+    data-tag="font" />
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Infant:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&amp;display=swap"
+    data-tag="font" />
+  <link rel="stylesheet" href="./style.css" />
+  <link rel="shortcut icon" href="public/logo.svg" type="image/x-icon">
+  <script src="./handle.js" defer></script>
+</head>
+
+<body>
+  <div class="loading-modal" id="loadingModal">
+    <div class="loading-content">
+      <div class="loading-spinner"></div>
+      <p>Loading...</p>
+    </div>
+  </div>
+  <div>
+    <link href="./index.css" rel="stylesheet" />
+    <div class="home-container">
+      <section class="home-hero">
+        <div class="home-main">
+          <div class="home-video">
+            <video src="" poster="public/cover.jpg" class="home-video1"></video>
+            <div class="home-tint"></div>
+          </div>
+          <div class="home-content">
+            <div class="home-center">
+              <div class="home-heading">
+                <h1 class="home-header">Zearching pirate philms</h1>
+                <p class="home-caption">
+                  without Ads,&nbsp; Popup, Tracking, bet, malware, spyware...
+                </p>
+              </div>
+              <div class="home-border">
+                <div class="home-filter">
+                  <img alt="image" src="public/Icons/film.svg" class="home-image" />
+                  <input id="movieName" type="text" placeholder="Tìm đi..." class="home-textinput input" />
+                  <button class="home-search" onclick="searchMovies()">
+                    <img alt="image" src="public/Icons/search.svg" class="home-icon" />
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="tours" class="home-quick-view">
+        <div class="home-main1">
+          <div class="home-heading1">
+            <h2 class="home-header1">elitessss note...</h2>
+            <p class="home-caption1">
+              resources are "pirated" from where you know ^^
+            </p>
+          </div>
+        </div>
+        <div id="searchResult"></div>
+        <div class="home-offers" id="movieList">
+          <!-- Content -->
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <section>
+    <div class="footer">
+      <div class="footer-content">
+        <div class="footer-section about">
+          <h1 onclick="window.location.reload();">BACK HOME</h1>
+  </section>
+</body>
+
+</html>
