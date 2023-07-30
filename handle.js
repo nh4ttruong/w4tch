@@ -138,26 +138,37 @@ function displayMovies(movies, keyword) {
   const movieListContainer = document.getElementById("movieList");
   movieListContainer.innerHTML = "";
 
+  const loadingModal = document.getElementById("loadingModal");
+  loadingModal.style.display = "block";
+
   const messageElement = document.getElementById("searchResult");
   const keywordElement = document.createElement("p");
   keywordElement.textContent = `Kết quả tìm kiếm cho: ${decodeURIComponent(
     keyword
   )}`;
 
-  if (!movies || Object.keys(movies).length === 0) {
-    keywordElement.textContent = `Không tìm thấy gì cạ`;
-    return;
-  }
-
-  messageElement.appendChild(keywordElement);
-
-  for (const movieId in movies) {
-    if (movies.hasOwnProperty(movieId)) {
-      const movie = movies[movieId];
-      addMovieToList(movie);
+  try {
+    if (!movies || Object.keys(movies).length === 0) {
+      keywordElement.textContent = `Không tìm thấy gì cạ`;
+      return;
+    }
+  
+    messageElement.appendChild(keywordElement);
+    
+    for (const movieId in movies) {
+      if (movies.hasOwnProperty(movieId)) {
+        const movie = movies[movieId];
+        addMovieToList(movie);
+      }
     }
   }
-  messageElement.scrollIntoView({ behavior: "smooth" });
+  catch (error) {
+    console.error("Error:", error);
+  }
+  finally {
+    loadingModal.style.display = "none";
+    messageElement.scrollIntoView({ behavior: "smooth" });
+  }
 }
 
 async function openMovieLink(url) {
@@ -194,6 +205,10 @@ async function openMovieLink(url) {
 }
 
 async function fetchMovieLink(url, filmType) {
+
+  const loadingModal = document.getElementById("loadingModal");
+  loadingModal.style.display = "block";
+
   try {
     const corsProxyAdminAjaxUrl = addCorsProxy(ADMIN_AJAX_URL);
     const filmId = getPostIdFromUrl(url);
@@ -234,12 +249,15 @@ async function fetchMovieLink(url, filmType) {
     }
   } catch (error) {
     console.error("Error:", error);
+  } finally {
+    loadingModal.style.display = "none";
   }
 }
 
 async function fetchTvSeriesEpisodes(url) {
   const loadingModal = document.getElementById("loadingModal");
   loadingModal.style.display = "block";
+
   try {
     const response = await fetch(addCorsProxy(url, true));
 
